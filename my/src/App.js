@@ -14,6 +14,7 @@ import UseReducerHook1 from './Component/UseReducerHook/UseReducerHook1';
 import Parent from './Component/UseContextHook/Parent';
 import ControledComponent from './Component/ControledComponent';
 import UnControledComponent from './Component/UnControledComponent';
+import ConditionalRendernig from './Component/ConditionalRendering';
 
 function App() {
   
@@ -36,7 +37,7 @@ function App() {
       //</header>
    // </div>
    <div  className='App'>
-      <UnControledComponent/>
+      <ConditionalRendernig/>
   </div>
    
   
