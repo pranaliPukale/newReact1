@@ -12,6 +12,7 @@ import UseMemoParentComp from './Component/UseMemoHook.jsx/UseMemoParentComp';
 import Form1 from './Component/FormHandling/Form1';
 import UseReducerHook1 from './Component/UseReducerHook/UseReducerHook1';
 import Parent from './Component/UseContextHook/Parent';
+import ControledComponent from './Component/ControledComponent';
 
 function App() {
   
@@ -34,7 +35,7 @@ function App() {
       //</header>
    // </div>
    <div  className='App'>
-      <Parent/>
+      <ControledComponent/>
   </div>
    
   
