@@ -13,6 +13,7 @@ import Form1 from './Component/FormHandling/Form1';
 import UseReducerHook1 from './Component/UseReducerHook/UseReducerHook1';
 import Parent from './Component/UseContextHook/Parent';
 import ControledComponent from './Component/ControledComponent';
+import UnControledComponent from './Component/UnControledComponent';
 
 function App() {
   
@@ -35,7 +36,7 @@ function App() {
       //</header>
    // </div>
    <div  className='App'>
-      <ControledComponent/>
+      <UnControledComponent/>
   </div>
    
   
