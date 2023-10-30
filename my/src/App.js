@@ -15,7 +15,10 @@ import Parent from './Component/UseContextHook/Parent';
 import ControledComponent from './Component/ControledComponent';
 import UnControledComponent from './Component/UnControledComponent';
 import ConditionalRendernig from './Component/ConditionalRendering';
-
+import EmployeeList from './Component/CRUD_using_context_api/EmployeeList';
+import AddEmployee from './Component/CRUD_using_context_api/AddEmployee';
+import EditEmployee from './Component/CRUD_using_context_api/EditEmployee';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 function App() {
   
   return (
@@ -37,7 +40,14 @@ function App() {
       //</header>
    // </div>
    <div  className='App'>
-      <ConditionalRendernig/>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<EmployeeList/>}></Route>
+          <Route exact path='/addEmployee' element={<AddEmployee/>}> </Route>
+          <Route  exact path='/editEmpoyee' element={<EditEmployee/>}></Route>
+        </Routes>
+      </Router>
+
   </div>
    
   
