@@ -19,6 +19,8 @@ import EmployeeList from './Component/CRUD_using_context_api/EmployeeList';
 import AddEmployee from './Component/CRUD_using_context_api/AddEmployee';
 import EditEmployee from './Component/CRUD_using_context_api/EditEmployee';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import {EmployeeProvider} from './Component/CRUD_using_context_api/EmployeeStore'
+
 import Chart1 from './Component/Chart1';
 function App() {
   
@@ -41,13 +43,19 @@ function App() {
       //</header>
    // </div>
    <div  className='App'>
-     <Router>
-        <Routes>
-          <Route exact path='/' element={<EmployeeList/>}></Route>
-          <Route exact path='/addEmployee' element={<AddEmployee/>}> </Route>
-          <Route  exact path='/editEmpoyee' element={<EditEmployee/>}></Route>
-        </Routes>
-      </Router>  
+    
+
+    <Router>
+        <EmployeeProvider>
+          <Routes>
+            <Route exact path='/' element={<EmployeeList/>}></Route>
+            <Route exact path='/addEmployee' element={<AddEmployee/>}> </Route>
+            <Route  exact path='/editEmpoyee' element={<EditEmployee/>}></Route>
+          </Routes>
+        </EmployeeProvider>
+        
+      </Router>
+    
   </div>
    
   
