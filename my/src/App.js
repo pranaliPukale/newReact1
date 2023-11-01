@@ -50,11 +50,12 @@ function App() {
           <Routes>
             <Route exact path='/' element={<EmployeeList/>}></Route>
             <Route exact path='/addEmployee' element={<AddEmployee/>}> </Route>
-            <Route  exact path='/editEmpoyee' element={<EditEmployee/>}></Route>
+            <Route  exact path='/editEmpoyee/:id' element={<EditEmployee/>}></Route>
           </Routes>
         </EmployeeProvider>
         
       </Router>
+
     
   </div>
    

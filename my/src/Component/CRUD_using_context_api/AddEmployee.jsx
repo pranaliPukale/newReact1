@@ -9,32 +9,24 @@ import { useNavigate } from "react-router-dom";
 
 //import employee context
 import {EmployeeContext} from  '../CRUD_using_context_api/EmployeeStore'
-
 const AddEmployee = () => {
-
-  const [validated, setValidated] = useState(false);
-
+  const [validated, setValidated] = useState(false)
   const [empID,setEmpID] = useState('');
   const[name,setName] = useState('')
   const [position,setPosition] = useState('')  
   const [company,setCompany] = useState('')
-
    const navigate =useNavigate()
-  const {addEmployee} = useContext(EmployeeContext)
-    
-  const handleSubmit = (event) => {
+  const {addEmployee} = useContext(EmployeeContext)  
+  const handleSubmit = (event) => 
+  {
     const form = event.currentTarget;
- 
     if (form.checkValidity() === false) {
         event.preventDefault();
       event.stopPropagation();
     }
-
     const employee ={id:Date.now(),empID,name,position,company}
-
     addEmployee(employee)
-    navigate('/')
-    
+    navigate('/') 
     setValidated(true);
   };
 
