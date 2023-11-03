@@ -6,17 +6,23 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
 //import employee context
 import {EmployeeContext} from  '../CRUD_using_context_api/EmployeeStore'
+ //import add employee action from employee slice 
+ import {addEmployee} from './employeeSlice'
+
 const AddEmployee = () => {
+  const dispatch = useDispatch()
   const [validated, setValidated] = useState(false)
+  
   const [empID,setEmpID] = useState('');
   const[name,setName] = useState('')
   const [position,setPosition] = useState('')  
   const [company,setCompany] = useState('')
    const navigate =useNavigate()
-  const {addEmployee} = useContext(EmployeeContext)  
+
+  //const {addEmployee} = useContext(EmployeeContext)  
   const handleSubmit = (event) => 
   {
     const form = event.currentTarget;
@@ -25,7 +31,10 @@ const AddEmployee = () => {
       event.stopPropagation();
     }
     const employee ={id:Date.now(),empID,name,position,company}
-    addEmployee(employee)
+    //addEmployee from context hook
+    //addEmployee(employee)
+    //call addEmployee reducer action from employee slice 
+    dispatch(addEmployee(employee))
     navigate('/') 
     setValidated(true);
   };

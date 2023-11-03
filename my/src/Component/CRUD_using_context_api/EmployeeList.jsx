@@ -4,17 +4,24 @@ import "./crudStyle.css";
 import Table from "react-bootstrap/Table";
 import { useNavigate } from "react-router-dom";
 
-import { EmployeeContext } from "../CRUD_using_context_api/EmployeeStore";
+//import { EmployeeContext } from "../CRUD_using_context_api/EmployeeStore";
+
+import {deleteEmployee} from './employeeSlice'
+
+ import { useSelector } from "react-redux";
+ import { useDispatch } from "react-redux";
 
 const EmployeeList = () => {
-  const { employees,deleteEmployee } = useContext(EmployeeContext);
-
-  const navigate = useNavigate();
-  const handleDelete=(id)=>
-  {
-      deleteEmployee(id);
-  }
+  //const { employees,deleteEmployee } = useContext(EmployeeContext);
   
+ const employees = useSelector(state =>state.employee.employees)
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const handleDelete =(id)=>{
+    //deleteEmployee(id)
+    dispatch(deleteEmployee(id))
+  }
+
   return (
     <div>
       <h5>EMPLOYEE LIST</h5>
@@ -49,7 +56,7 @@ const EmployeeList = () => {
                   <Button variant="primary" size="sm" onClick={()=>navigate(`/editEmpoyee/${employee.id}`)}>
                     Edit
                   </Button>
-                  <Button variant="danger" size="sm" onClick={()=>handleDelete(employee.id)}  style={{marginLeft:"10px"}}>
+                  <Button variant="danger" size="sm" onClick={()=>handleDelete(employee.id)} style={{marginLeft:"10px"}}>
                     Delete
                   </Button>
                 </td>
@@ -63,3 +70,4 @@ const EmployeeList = () => {
 };
 
 export default EmployeeList;
+

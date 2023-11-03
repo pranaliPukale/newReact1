@@ -8,12 +8,19 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
-import {EmployeeContext} from '../CRUD_using_context_api/EmployeeStore'
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+
+//import {EmployeeContext} from '../CRUD_using_context_api/EmployeeStore'
+import {updateEmployee } from './employeeSlice'
 
 const EditEmployee = () => {
   const { id } = useParams();
   const navigate = useNavigate()
-  const { employees,updateEmployee } = useContext(EmployeeContext);
+  const dispatch =useDispatch()
+  //const { employees,updateEmployee } = useContext(EmployeeContext);
+
+  const employees = useSelector(state=> state.employee.employees)
 
   const [validated, setValidated] = useState(false);
 
@@ -44,7 +51,9 @@ const EditEmployee = () => {
 
     const updatedEmployee = { id: parseInt(id), empID, name, position, company };
 
-    updateEmployee(parseInt(id),updatedEmployee)
+    //updateEmployee(parseInt(id),updatedEmployee)
+
+    dispatch(updateEmployee({id:parseInt(id),updatedEmployee}))
      navigate('/')
 
     setValidated(true);
